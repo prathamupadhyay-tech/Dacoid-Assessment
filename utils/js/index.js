@@ -68,14 +68,12 @@ function handleLoginPage() {
 }
 
 window.onload = function () {
-  if (window.location.href === `http://127.0.0.1:5500/workOutSchedule.html`) {
+  if (window.location.href === `${URL}/workOutSchedule`) {
     populateWorkOutSchedule();
     setInterval(updateCurrentTimeLine, 60000);
 
     updateCurrentTimeLine();
-  } else if (
-    window.location.href === `http://127.0.0.1:5500/createAccountPage.html`
-  ) {
+  } else if (window.location.href === `${URL}/createAccountPage`) {
     passwordShowFunction("sign-in");
     const inputFields = document.querySelectorAll(
       "input[type='text'], input[type='password']"
@@ -87,7 +85,7 @@ window.onload = function () {
 };
 
 function passwordShowFunction(show) {
-  console.log(show)
+  console.log(show);
   const passIn = document.getElementById(`${show}-password`);
   const btn = document.getElementById(`${show}-togglePassword`);
   btn.addEventListener("click", function () {
