@@ -1,0 +1,43 @@
+.bottom-forward-btn-before{
+    background-image: conic-gradient(#89A1FF 90deg , transparent 20deg );
+    content: "";
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    transition: background-image 0.3s ease;
+}
+.burn-goals-div{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.track-goals-div{
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    color: #89a1ff00;
+  }
+
+  .create-an-account-div.hide{
+    display: none;
+  }
+  .create-an-account-div{
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  .login-div.hide{
+    display: none;
+  }
+  .login-div{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .password-label{
+  
+    display: block;
+    transition: top 0.5s ease;
+  }
+  .email-label{
+
+    display: block;
+    transition: top 0.5s ease;
+  }
