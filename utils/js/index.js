@@ -1,3 +1,9 @@
+
+const URL = "https://precious-valkyrie-3c2b03.netlify.app";
+
+
+
+
 function changeGradient() {
   forwardBtn();
   const beforeElement = document.querySelector(".bottom-forward-btn-before");
@@ -75,7 +81,7 @@ function handleLoginPage() {
 }
 
 window.onload = function () {
-  if (window.location.href === "http://127.0.0.1:5500/workOutSchedule.html") {
+  if (window.location.href === `${URL}/workOutSchedule`) {
     populateWorkOutSchedule();
   }
 
