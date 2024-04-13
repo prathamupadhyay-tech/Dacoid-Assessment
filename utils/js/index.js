@@ -68,12 +68,12 @@ function handleLoginPage() {
 }
 
 window.onload = function () {
-  if (window.location.href === `${URL}/workOutSchedule`) {
+  if (window.location.href === `https://precious-valkyrie-3c2b03.netlify.app/workoutschedule`) {
     populateWorkOutSchedule();
     setInterval(updateCurrentTimeLine, 60000);
 
     updateCurrentTimeLine();
-  } else if (window.location.href === `${URL}/createAccountPage`) {
+  } else if (window.location.href === `https://precious-valkyrie-3c2b03.netlify.app/createAccountPage`) {
     passwordShowFunction("sign-in");
     const inputFields = document.querySelectorAll(
       "input[type='text'], input[type='password']"
