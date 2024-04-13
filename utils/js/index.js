@@ -74,6 +74,71 @@ function handleLoginPage() {
   }
 }
 
+window.onload = function () {
+  if (window.location.href === "http://127.0.0.1:5500/workOutSchedule.html") {
+    populateWorkOutSchedule();
+  }
+
+  setInterval(updateCurrentTimeLine, 60000);
+
+  updateCurrentTimeLine();
+};
+
+const workOutSchedule = [
+  {
+    name: "Ab work out",
+    time: "7:30am",
+  },
+  {
+    name: "Upper Body Workout",
+    time: "9:00am",
+  },
+  {
+    name: "Lower Body Workout",
+    time: "3:00am",
+  },
+];
+
+function populateWorkOutSchedule() {
+  workOutSchedule.forEach((data) => {
+    const timeString = data.time;
+    const date = new Date("2000-01-01 " + timeString); // Use an arbitrary date with the time string
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    const timeBlockHeight = 32;
+    const oneMinuteSpace = timeBlockHeight / 60;
+    const positionFromBlockHeight = oneMinuteSpace * minutes;
+    const hourBlock = document.getElementById(`hour-${hour}`);
+    if (hourBlock) {
+      const hourBlockPosition = hourBlock.offsetTop;
+
+      const workoutElement = document.createElement("div");
+      workoutElement.classList.add("workout-schedule");
+      workoutElement.classList.add(
+        "p-4",
+        "absolute",
+        "right-[1em]",
+        "top-[65px]",
+        "w-[60%]",
+        "rounded-full",
+        "h-2",
+        "flex",
+        "justify-center",
+        "items-center",
+        "text-[white]",
+        "bg-gradient-to-l",
+        "from-[#D3A4F4]",
+        "to-[#E9B1E0]"
+      );
+      workoutElement.style.top =
+        hourBlockPosition + positionFromBlockHeight + "px";
+      workoutElement.innerHTML = `<p class="text-[12px]">${data.name}, ${data.time}</p>`;
+
+      hourBlock.appendChild(workoutElement);
+    }
+  });
+}
+
 function toggle(element) {
   const toggleCircle = element.querySelector(".toggle-circle");
   if (toggleCircle.style.left === "0.25em") {
@@ -87,25 +152,20 @@ function updateCurrentTimeLine() {
   const hours = currentTime.getHours();
   const minutes = currentTime.getMinutes();
   const timeBlockHeight = 32;
-  const oneMinuteSpace = timeBlockHeight/60;
-  const allCurrentTimeEle = document.querySelectorAll('.current-time');
-  allCurrentTimeEle.forEach(ele=>{
-    ele.style.display = 'none'
-  })
-  const positionFromBlockHeight = oneMinuteSpace* minutes; 
+  const oneMinuteSpace = timeBlockHeight / 60;
+  const allCurrentTimeEle = document.querySelectorAll(".current-time");
+  allCurrentTimeEle.forEach((ele) => {
+    ele.style.display = "none";
+  });
+  const positionFromBlockHeight = oneMinuteSpace * minutes;
 
   const hourBlock = document.getElementById(`hour-${hours}`);
   if (hourBlock) {
-      const hourBlockPosition = hourBlock.offsetTop;
-      
-      const currentTimeLine = hourBlock.querySelector(".current-time");
-      currentTimeLine.style.display = 'block'
-      currentTimeLine.style.top = hourBlockPosition + positionFromBlockHeight + "px";
+    const hourBlockPosition = hourBlock.offsetTop;
+
+    const currentTimeLine = hourBlock.querySelector(".current-time");
+    currentTimeLine.style.display = "block";
+    currentTimeLine.style.top =
+      hourBlockPosition + positionFromBlockHeight + "px";
   }
 }
-
-
-setInterval(updateCurrentTimeLine, 60000);
-
-
-updateCurrentTimeLine();
