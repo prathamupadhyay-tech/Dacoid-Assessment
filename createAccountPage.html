@@ -19,7 +19,7 @@
             <div class="flex flex-col gap-5 w-full">
                
                <div class="relative">
-                <input type="text"  id="Email" class="w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
+                <input onfocus="removeLabel(this ,'email-label')" onblur="addLabel(this,'email-label')" type="text"  id="Email" class="w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
                 #7F7F7F]">
                 
                </div>
@@ -27,13 +27,13 @@
                 <div class="mb-4 relative">
                    
                     <div class="flex items-center">
-                        <input type="password" id="password"
+                        <input  onfocus="removeLabel(this,'password-label')" onblur="addLabel(this,'password-label')" type="password" id="log-in-password"
                               
                                required name="password"
                                class="rounded-[12px] bg-[#F1F1F1] w-full p-3 text-[
                 #7F7F7F]">
                
-                        <button type="button" id="togglePassword"
+                        <button type="button" id="log-in-togglePassword"
                                 class="focus:outline-none -ml-8">
                             
                                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,29 +69,29 @@
     
             <div class="flex flex-col gap-5">
                 <div class="create-an-account-div relative ">
-                    <input type="text" id="first-name"  class=" w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
+                    <input   type="text" id="first-name"  class=" w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
                     #7F7F7F]">
-                    <label  class="absolute top-[0.8em] left-[0.8em] text-[#7F7F7F] cursor-text"  for="first-name">First Name</label>
+                    <label   class="absolute top-[0.8em] left-[0.8em] text-[#7F7F7F] cursor-text"  for="first-name">First Name</label>
                 </div>
                <div class="create-an-account-div relative">
-                <input type="text" id="last-name"  class="w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
+                <input   type="text" id="last-name"  class="w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
                 #7F7F7F]">
                 <label  class="absolute top-[0.8em] left-[0.8em] text-[#7F7F7F] cursor-text"   for="last-name">Last Name</label>
                </div>
                <div class=" relative">
-                <input type="text"  id="Email" class="create-an-account-div w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
+                <input type="text"  onfocus="removeLabel(this,'email-label')" onblur="addLabel(this,'email-label')"  id="Email" class="create-an-account-div w-full rounded-[12px] bg-[#F1F1F1] p-3 text-[
                 #7F7F7F]">
              </div>
              
                 <div class="mb-4 password-create-account relative">
                    
                     <div class="flex items-center">
-                        <input type="password" id="password"
+                        <input  onfocus="removeLabel(this,'password-label')" onblur="addLabel(this,'password-label')" type="password" id="sign-in-password"
                               
                                required name="password"
                                class="create-an-account-div rounded-[12px] bg-[#F1F1F1] w-full p-3 text-[
                 #7F7F7F]">
-                      <button type="button" id="togglePassword"
+                      <button type="button" id="sign-in-togglePassword"
                                 class="create-an-account-div focus:outline-none -ml-8">
                             
                                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,9 +1,5 @@
-
 const URL = "https://precious-valkyrie-3c2b03.netlify.app";
-
-
-
-
+const URL2 = "https://precious-valkyrie-3c2b03.netlify.app";
 function changeGradient() {
   forwardBtn();
   const beforeElement = document.querySelector(".bottom-forward-btn-before");
@@ -23,19 +19,10 @@ function forwardBtn() {
   burnDiv.style.opacity = 1;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const passIn = document.getElementById("password");
-  const btn = document.getElementById("togglePassword");
-  btn.addEventListener("click", function () {
-    const type =
-      passIn.getAttribute("type") === "password" ? "text" : "password";
-    passIn.setAttribute("type", type);
-  });
-});
-
 let logincase = "signin";
 
 function handleLoginPage() {
+  passwordShowFunction("log-in");
   const loginPage = document.querySelectorAll(".login-div");
   const emailLabel = document.querySelector("[email-label]");
 
@@ -81,14 +68,34 @@ function handleLoginPage() {
 }
 
 window.onload = function () {
-  if (window.location.href === `${URL}/workOutSchedule`) {
+  if (window.location.href === `http://127.0.0.1:5500/workOutSchedule.html`) {
     populateWorkOutSchedule();
+    setInterval(updateCurrentTimeLine, 60000);
+
+    updateCurrentTimeLine();
+  } else if (
+    window.location.href === `http://127.0.0.1:5500/createAccountPage.html`
+  ) {
+    passwordShowFunction("sign-in");
+    const inputFields = document.querySelectorAll(
+      "input[type='text'], input[type='password']"
+    );
+    inputFields.forEach((input) => {
+      input.value = "";
+    });
   }
-
-  setInterval(updateCurrentTimeLine, 60000);
-
-  updateCurrentTimeLine();
 };
+
+function passwordShowFunction(show) {
+  console.log(show)
+  const passIn = document.getElementById(`${show}-password`);
+  const btn = document.getElementById(`${show}-togglePassword`);
+  btn.addEventListener("click", function () {
+    const type =
+      passIn.getAttribute("type") === "password" ? "text" : "password";
+    passIn.setAttribute("type", type);
+  });
+}
 
 const workOutSchedule = [
   {
@@ -173,5 +180,16 @@ function updateCurrentTimeLine() {
     currentTimeLine.style.display = "block";
     currentTimeLine.style.top =
       hourBlockPosition + positionFromBlockHeight + "px";
+  }
+}
+
+function removeLabel(currentElement, element) {
+  const labelElement = document.querySelector(`.${element}`);
+  labelElement.style.display = "none";
+}
+function addLabel(currentElement, element) {
+  if (!currentElement.value) {
+    const labelElement = document.querySelector(`.${element}`);
+    labelElement.style.display = "block";
   }
 }
